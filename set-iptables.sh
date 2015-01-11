@@ -4,16 +4,15 @@ ip=/sbin/iptables
 tcpservices="80 8080 443 22 123 3784"
 udpservices="3784"
 
-# Firewall script for servername
 echo -n ">> Applying iptables rules... "
 
-## flushing...
+# flush current
 $ip -F
 $ip -X
 $ip -Z
 $ip -t nat -F
 
-# default: DROP!
+# default: DROP
 $ip -P INPUT DROP
 $ip -P OUTPUT DROP
 $ip -P FORWARD DROP
